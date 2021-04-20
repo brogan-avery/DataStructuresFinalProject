@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>tripPlanner</title>
     <meta charset="UTF-8">
+    <title>buildTrip</title>
+ <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% load static %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -99,7 +100,7 @@
 </nav>
 {# Header #}
 <header>
-<h1 class="centered_text"> Trip Planner </h1>
+<h1 class="centered_text"> Build Trip </h1>
 </header>
 
 {# All Locations #}
@@ -125,13 +126,27 @@
   </tbody>
 </table>
 
-<br>
-<div class="button"> <a href="editList"> Edit List/ List Item(s)</a></div>
-<br>
 
-<br>
-<div class="button"> <a href="buildTrip"> Build Trip</a></div>
-<br>
+<br><hr>
+
+
+<p>Enter the ID for a start location and an end location to see the distance between:</p>
+<form action="/tripPlanner/buildTrip/" method="post">
+    <label for ="locid1" > Location 1 ID Number: </label>
+    {% csrf_token %}
+    <input id = "locid1" type = "text" name = "locid1"  required >
+    <br>
+    <label for ="locid2" > Location 2 ID Number: </label>
+    {% csrf_token %}
+    <input id = "locid2" type = "text" name = "locid2"  required >
+    <br>
+    <input type="submit" value="Submit">
+</form>
+<br><br>
+
+<p class="label">The distance between location 1 and location 2 is: </p>
+<p class="val_for_label">{{distanceBetween}}</p> <p class="label"> miles </p>
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

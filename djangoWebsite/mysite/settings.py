@@ -19,7 +19,6 @@ ALLOWED_HOSTS = ['0.0.0.0', 'localhost','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    #'website.apps.WebsiteConfig',
     'homePage',
     'packingList',
     'tripPlanner',
@@ -116,3 +115,4 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
